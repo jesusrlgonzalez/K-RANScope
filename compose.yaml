@@ -1,0 +1,9 @@
+services:
+  api:
+    build: .
+    ports: ["127.0.0.1:8035:8000"]
+    read_only: true
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    volumes: ["./outputs/baseline:/work/outputs/baseline:ro"]
+    environment: ["PYTHONPATH=/work/src"]
